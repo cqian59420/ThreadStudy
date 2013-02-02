@@ -18,7 +18,7 @@ class CustomThread1 extends Thread {
             }
             System.out.println(threadName + " end.");
         } catch (Exception e) {
-            System.out.println("Exception from " + threadName + ".run");
+            System.out.println("ThreadException from " + threadName + ".run");
         }
     }
 }
@@ -38,7 +38,7 @@ class CustomThread extends Thread {
             t1.join();
             System.out.println(threadName + " end.");
         } catch (Exception e) {
-            System.out.println("Exception from " + threadName + ".run");
+            System.out.println("ThreadException from " + threadName + ".run");
         }
     }
 }
@@ -56,7 +56,7 @@ public class JoinTestDemo {
             t.start();
           // t.join();//在代碼2里，將此處注釋掉
         } catch (Exception e) {
-            System.out.println("Exception from main");
+            System.out.println("ThreadException from main");
         }
         System.out.println(threadName + " end!");
     }
