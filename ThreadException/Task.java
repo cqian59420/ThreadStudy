@@ -5,7 +5,7 @@ package Thread.ThreadStudy.ThreadException;
  * User: Terrance
  * Date: 13-2-2
  * Time: 下午11:33
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | Settings | File Templates.uu
  */
 public class Task implements Runnable{
 
