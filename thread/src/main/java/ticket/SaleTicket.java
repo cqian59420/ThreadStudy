@@ -7,6 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by cq on 2017/2/14.
  */
+
+/**
+ * 缺点是不公平,待修改
+ */
 public class SaleTicket {
 
     public static void main(String[] args) {
@@ -18,13 +22,17 @@ public class SaleTicket {
         Runnable runnable = new Runnable() {
 
             public void run() {
-                totalTickets.decrementAndGet();
-                System.out.println(Thread.currentThread().getName()+"购买一张票，还剩:"+totalTickets.get());
+                if (totalTickets.get()>0) {
+                    totalTickets.decrementAndGet();
+                    System.out.println(Thread.currentThread().getName() + "购买一张票，还剩:" + totalTickets.get());
+                }else {
+                    System.out.println(Thread.currentThread().getName() + "没买到票");
+                }
             }
         };
 
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 502; i++) {
             new Thread(runnable, String.valueOf(i)).start();
         }
 
