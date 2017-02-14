@@ -13,7 +13,7 @@ public class Preloader {
 
     private final FutureTask<ProductInfo> future = new FutureTask<ProductInfo>(new Callable<ProductInfo>() {
         public ProductInfo call() throws Exception {
-            return loadProductInfo();
+            return null;
         }
     });
 
@@ -32,5 +32,7 @@ public class Preloader {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
 }
