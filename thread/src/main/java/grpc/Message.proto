@@ -1,0 +1,17 @@
+syntax ="proto3";
+
+message SearchRequest{
+
+    string query =1;
+    repeated int32 val=2;
+}
+
+message SearchResponse{
+    string query =1;
+    repeated int32 val=2;
+}
+
+
+service SerchService{
+rpc Search(SearchRequest) returns (SearchResponse);
+}
