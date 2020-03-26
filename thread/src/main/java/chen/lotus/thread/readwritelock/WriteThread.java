@@ -18,10 +18,6 @@ public class WriteThread extends Thread {
 
     @Override
     public void run() {
-        while (true) {
-            char c = nextChar();
-            data.write(c);
-            sleep(random.nextInt(3000));
-        }
+
     }
 }

@@ -14,20 +14,18 @@ public class TestHarness {
         final CountDownLatch endGate = new CountDownLatch(nThread);
 
         for (int i = 0; i < nThread; i++) {
-            Thread t = new Thread() {
-                public void run(){
+            Thread t = new Thread(() -> {
+                try {
+                    startGate.await();
                     try {
-                        startGate.await();
-                        try {
-                            task.run();
-                        } finally {
-                            endGate.countDown();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        task.run();
+                    } finally {
+                        endGate.countDown();
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            };
+            });
             t.start();
         }
 
